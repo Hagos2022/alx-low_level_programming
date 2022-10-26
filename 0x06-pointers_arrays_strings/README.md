@@ -18,15 +18,15 @@ Mandatory:
 
 7-leet.c - function that encodes a string into 1337.
 
-8-rot13.c - function that encodes a string using rot13.
-
 
 Advanced:
 
-100-print_number.c - function that prints an integer without: arrays, pointers, or hard-coded special values.
+100-rot13.c - function that encodes a string using rot13.
 
-101-magic.c - Add one line to this [code](this code), so that the program prints a[2] = 98, followed by a new line.
+101-print_number.c - function that prints an integer without: arrays, pointers, or hard-coded special values.
 
-102-infinite_add.c - function that adds two numbers stored as strings.
+102-magic.c - Add one line to this [code](this code), so that the program prints a[2] = 98, followed by a new line.
 
-103-print_buffer.c - function that prints a buffer with special formatting.
+103-infinite_add.c - function that adds two numbers stored as strings.
+
+104-print_buffer.c - function that prints a buffer with special formatting.
