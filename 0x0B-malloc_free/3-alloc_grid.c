@@ -16,18 +16,20 @@ int **arr;
 int r, c, i;
 if (width <= 0 || height <= 0)
 return (NULL);
-arr = (int **)malloc(sizeof(int *) * height);
+arr = (int **)malloc(sizeof(*arr) * height);
 if (arr == NULL)
 return (NULL);
-arr[0] = (int *)malloc(sizeof(int) * width * height);
-if (arr[0] == NULL)
+for (i = 0; i < height; i++)
 {
-free(arr[0]);
+arr[i] = (int *)malloc(sizeof(int) * width);
+if (arr[i] == NULL)
+{
+while (i--)
+free(arr[i]);
 free(arr);
 return (NULL);
 }
-for (i = 0; i < height; i++)
-arr[i] = (*arr + width * i);
+}
 for (r = 0; r < height; r++)
 for (c = 0; c < width; c++)
 arr[r][c] = 0;
