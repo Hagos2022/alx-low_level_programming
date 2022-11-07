@@ -10,37 +10,26 @@
  *
  * Return: Pointer to 2d array.
  */
-
 int **alloc_grid(int width, int height)
 {
-int **s;
-int i, j, k, fr;
-fr = 0;
+int **arr;
+int r, c, i;
 if (width <= 0 || height <= 0)
-return (0);
-s = malloc(height * sizeof(int *));
-if (s == 0)
-return (0);
+return (NULL);
+arr = (int **)malloc(sizeof(int *) * height);
+if (arr == NULL)
+return (NULL);
+arr[0] = (int *)malloc(sizeof(int) * width * height);
+if (arr[0] == NULL)
+{
+free(arr[0]);
+free(arr);
+return (NULL);
+}
 for (i = 0; i < height; i++)
-{
-*(s + i) = malloc(width * sizeof(int));
-if (*(s + i) == 0)
-{
-fr = 1;
-break;
-}
-for (j = 0; j < width; j++)
-{
-s[i][j] = 0;
-}
-}
-if (fr == 1)
-{
-for (k = 0; k <= i; k++)
-{
-free(*(s + k));
-}
-free(s);
-}
-return (s);
+arr[i] = (*arr + width * i);
+for (r = 0; r < height; r++)
+for (c = 0; c < width; c++)
+arr[r][c] = 0;
+return (arr);
 }
