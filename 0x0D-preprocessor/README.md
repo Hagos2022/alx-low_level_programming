@@ -20,7 +20,3 @@ Write a function-like macro ABS(x) that computes the absolute value of a number 
 4. SUM:
 
 Write a function-like macro SUM(x, y) that computes the sum of the numbers x and y.
-
-5. Fun with the preprocessor:
-
-Write a program that can print Hello, Holberton, followed by a new line.
