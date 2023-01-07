@@ -1,41 +1,50 @@
 #include <stdio.h>
-/**
- * print_fib - prints the first 50 Fibonacci numbers,
- * starting with 1 and 2, followed by a new line.
- * @len: the length of with the fib sequance should print to.
- *
- * Return: void
- */
-void print_fib(int len)
-{
-unsigned int target, i, f, l;
-unsigned int former_l, former_r;
-unsigned int latter_l, latter_r;
-unsigned int fib_l, fib_r;
-f = 1;
-l = 2;
-target = len - 2;
-for (i = 0 ; i < target ; i++)
-{
-fib_r = f + l;
-printf("%d : ", i + 4);
-printf("%u", fib_r);
-f = l;
-l = fib_r;
-if (i < target - 1)
-printf("\n");
-}
-putchar('\n');
-}
 
 /**
- * main - Entry point,
+ * main - Prints the first 98 Fibonacci numbers
  *
- *
- * Return: Always 0 (sucess)
+ * Return: Always 0.
  */
 int main(void)
 {
-print_fib(98);
-return (0);
+	int i, bool1, bool2;
+	long int n1, n2, fn1, fn2, n11, n22;
+
+	n1 = 1;
+	n2 = 2;
+	bool1 =  bool2 = 1;
+	printf("%ld, %ld", n1, n2);
+	for (i = 0; i < 96; i++)
+	{
+		if (bool1)
+		{
+			fn1 = n1 + n2;
+			printf(", %ld", fn1);
+			n1 = n2;
+			n2 = fn1;
+		}
+		else
+		{
+			if (bool2)
+			{
+				n11 = n1 % 1000000000;
+				n22 = n2 % 1000000000;
+				n1 = n1 / 1000000000;
+				n2 = n2 / 1000000000;
+				bool2 = 0;
+			}
+			fn2 = (n11 + n22);
+			fn1 = n1 + n2 + (fn2 / 1000000000);
+			printf(", %ld", fn1);
+			printf("%ld", fn2 % 1000000000);
+			n1 = n2;
+			n11 = n22;
+			n2 = fn1;
+			n22 = (fn2 % 1000000000);
+		}
+		if (((n1 + n2) < 0) && bool1 == 1)
+			bool1 = 0;
+	}
+	printf("\n");
+	return (0);
 }
